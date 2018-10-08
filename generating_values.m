@@ -2,26 +2,53 @@
 clc
 clearvars
 
-fprintf('\n')
-disp('This file will cover how to generate values')
+disp('1. normal way of generating values')
+disp('2. generating values using linspace')
 
-fprintf('\n')
-disp(' a:b:c ')
+val=input('Enter value : ')
 
-disp(' where a = start position ')
-fprintf('\n')
+switch val
+    case 1
+        clc
+        
+        disp('This file will cover how to generate values')
 
-disp('b = step interval ')
-fprintf('\n')
+        
+        disp(' a:b:c ')
 
-disp('c=end position')
-fprintf('\n')
+        disp(' where a = start position ')
+        
 
-disp('For example')
-a=input('Enter a as stated above : ')
-b=input('Enter b as stated above : ')
-c=input('Enter c as stated above : ')
+        disp('b = step interval ')
+        
 
-disp(char(10))
-disp('The generated values are : ')
-disp(a:b:c)
+        disp('c=end position')
+     
+
+        disp('For example')
+        a=input('Enter a as stated above : ');
+        b=input('Enter b as stated above : ');
+        c=input('Enter c as stated above : ');
+
+        disp(char(10))
+        disp('The generated values are : ')
+        disp(a:b:c)
+
+    case 2
+        
+        disp('Generating values using linspace')
+        clc
+        clearvars
+
+        a=input('Enter start point : ');
+        b=input('Enter end point : ');
+        c=input('Enter the no of elements : ');
+
+        disp(linspace(a,b,c))
+end
+
+
+
+
+
+
