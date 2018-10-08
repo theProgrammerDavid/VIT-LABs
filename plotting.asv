@@ -42,8 +42,7 @@ switch val
         
         ezplot(y);
         
-        r=input('Now enter the limits as [a,b] : ')
-        ezplot(y,r);
+        r=input(
         
         
 end
