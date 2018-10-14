@@ -3,6 +3,8 @@ clearvars
 syms x
 f = input('Enter the function f(x):');
 I = input('Enter the interval: ');
+%the diff function is used to differentiate a function with respect to the
+%next variable passed as an argument
 df = diff(f,x);
 ddf = diff(df,x);
 

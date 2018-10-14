@@ -9,6 +9,4 @@ input('\nPress Enter to continue\n')
 
 disp('MATLAB is useful when we want to analyse large amounts of data')
 
-
-
 disp('To get help with any command, type in "help [command]" ')
