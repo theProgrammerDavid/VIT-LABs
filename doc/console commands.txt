@@ -1,0 +1,45 @@
+ cd: Changes directories to another location.
+
+ copyfile: Copies the specified file or folder to another location.
+
+ delete: Removes the specified file or object.
+
+ dir: Outputs a list of the folder contents.
+
+ exist: Determines whether a variable, function, folder, or class exists.
+
+ fileattrib: Displays the file or directory attributes (such as whether
+the user can read or write to the file) when used without attribute argu-
+ments. Sets the file or directory attributes when used with arguments.
+ 
+isdir: Determines whether the input is a folder.
+
+ ls: Outputs a list of the folder contents.
+
+ mkdir: Creates a new directory.
+
+ movefile: Moves the specified file or folder to another location.
+
+ open: Opens the specified file using the default application. (Some files
+can be opened using multiple applications.)
+
+ pwd: Displays the current path information, including the drive letter.
+
+ recycle: Determines whether deleted files or folders are moved to the
+recycle bin.
+
+ rmdir: Deletes the specified directory.
+
+ type: Outputs the content of the specified file as text.
+Some commands, such as type, can be combined with other com-
+mands, such as disp, to create well-formatted output. The disp com-
+mand displays text, variables, or arrays. You discover how to use it later
+in the book (starting with Chapter 8). The point is that you sometimes
+combine commands to obtain a desired output.
+
+ visdiff: Performs a comparison of two files of the following types:
+• Text
+• MAT-Files
+• Binary
+• Zip
+• Folders

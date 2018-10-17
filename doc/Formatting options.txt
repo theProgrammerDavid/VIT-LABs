@@ -1,0 +1,35 @@
+MATLAB provides a number of format commands. each of them begins with the keyword format
+
+
+ short: All floating-point output has at least one whole number, a decimal
+point, and four decimal values, such as 4.2000.
+
+ long: All floating-point output has at least one whole number, a decimal
+point, and 15 decimal values, such as 4.200000000000000.
+
+ shorte: All floating-point output uses exponential format with four
+decimal places, such as 4.2000e+00.
+
+ longe: All floating-point output uses exponential format with 15 decimal
+places, such as 4.200000000000000e+00.
+
+ shortg: All output uses a short general format, such as 4.2, with five
+digits of space.
+
+ long: All output uses a long general format, such as 4.2, with 15 digits of
+space.
+
+shorteng: All floating-point output uses exponential format with four
+decimal places and powers in groups of three, such as 4.2000e+000.
+
+ longeng: All floating-point output uses exponential format with 14 decimal
+places and powers in groups of three, such as 4.20000000000000e+000.
+
+ hex: All output is in hexadecimal format, such as 4010cccccccccccd.
+
+ +: All output is evaluated for positive or negative values, so that the
+result contains just a + or - sign, such as + when using the formula 2 * 2.1.
+
+ bank: All output provides two decimal places, even for integer calcula-
+tions, such as 4.20.
+

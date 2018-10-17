@@ -1,0 +1,23 @@
+
+
+idivide() 
+integer division
+
+• ceil: Rounds toward positive infinity. For example, idivide
+(int32(5), int32(3), 'ceil') produces an output of 2
+and idivide(int32(5), int32(–3), 'ceil') produces an
+output of –1.
+
+• fix: Rounds toward zero. For example, idivide(int32(5),
+int32(3), 'fix') produces an output of 1 and idivide
+(int32(5), int32(–3), 'fix') produces an output of –1.
+
+• floor: Rounds toward negative infinity. For example, idivide
+(int32(5), int32(3), 'floor') produces an output of 1 and
+idivide(int32(5), int32(–3), 'floor') produces a result
+of –2.
+
+• round: Rounds to the nearest integer. For example, idivide
+(int32(5), int32(3), 'round') produces an output of 2
+and idivide(int32(5), int32(–3), 'round') produces an
+output of –2.
