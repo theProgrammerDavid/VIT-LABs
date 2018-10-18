@@ -31,3 +31,6 @@ h - six point star
 -. dash dot
 -- dashed
 <nothing> no line
+
+
+eg. plot(1:5,y,'r+--')
