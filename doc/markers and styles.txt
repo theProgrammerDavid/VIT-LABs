@@ -1,0 +1,33 @@
+#line color codes
+
+b-blue
+g-green
+r-red
+c-cyan
+m-magenta
+y-yellow
+k-black
+w-white
+
+#marker style codes
+
+.-point
+o-circle
+x-x mark
++-plus
+*-star
+s-square
+d-diamond
+v-down triangle
+^-up triangle
+<-left triangle
+> - right triangle
+p - 5 point star
+h - six point star
+
+#line style
+- solid line
+: dotted line
+-. dash dot
+-- dashed
+<nothing> no line

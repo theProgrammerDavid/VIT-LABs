@@ -1,0 +1,5 @@
+# give x some values using :: or linspace
+plot(x,sin(x))
+area(x,sin(x)),grid
+
+
