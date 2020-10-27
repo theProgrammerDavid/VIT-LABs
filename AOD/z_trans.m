@@ -1,24 +1,15 @@
-clear all
 clc
-syms n z y(n) Y
-yn=y(n);
-yn1=y(n+1);
-yn2=y(n+2);
-F = input('Input the coefficients [a,b,c]: ');
-a=F(1);b=F(2);c=F(3);
-nh = input('Enter the non-homogenous part f(n): ');
-eqn=a*yn2+b*yn1+c*yn-nh;
-ZTY=ztrans(eqn);
-IC=input('Enter the initial conditions in the form [y0,y1]:');
-y0=IC(1);y1=IC(2);
-ZTY=subs(ZTY,{'ztrans(y(n),n,z)','y(0)','y(1)'},{Y,y0,y1});
-eq=collect(ZTY,Y);
-Y=simplify(solve(eq,Y));
-yn=simplify(iztrans(Y));
-disp('The solution of the difference equation yn=')
-disp(yn);
-m=0:20;
-y=subs(yn,n,m);
+clear all
+close all
+syms n z Y y(n)
+A=input('Enter y(n+2) y(n+1) y(n) coeff in vector form');%[1 4 3]
+f=input('Enter non homogeneous term');
+cond=input('Enter Ic y(0) and y(1) in vector form');
+a=A(1);b=A(2);c=A(3);
+eq=ztrans(a*y(n+2)+b*(n+1)+c*y(n)-f)
+eq=subs(eq,{str2sym('ztrans(y(n),n,z)'),str2sym('y(0)'),str2sym('y(1)')},{Y,cond(1),cond(2)});
+Y=solve(eq,Y);
+y=simplify(iztrans(Y,z,n))
+m=0:10;
+y=subs(y,n,m);
 stem(y)
-title('Difference equation');
-xlabel('n'); ylabel('y(n)');    
