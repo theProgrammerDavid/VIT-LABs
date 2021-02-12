@@ -1,4 +1,3 @@
-import java.io.*;
 import java.util.*;
 
 public class multiplicationTable {
@@ -7,7 +6,7 @@ public class multiplicationTable {
 
         System.out.print("Enter N: ");
         int n = sc.nextInt();
-        for (int i = 1; i <= n; i++) {
+        for (int i = 1; i <= 10; i++) {
             System.out.print(String.valueOf(n) + " x " + String.valueOf(i) + " = " + String.valueOf(n * i) + "\n");
         }
         sc.close();
