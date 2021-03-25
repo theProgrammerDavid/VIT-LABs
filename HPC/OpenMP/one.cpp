@@ -1,20 +1,21 @@
 #include <omp.h>
-#include <stdio.h>
+#include <iostream>
+#include <thread>
 
-int main(void)
+int main()
 {
-    int t = (0 == 0); // true value
-    int f = (1 == 0); // false value
+    int count = 0;
+    int t = 0;
+#pragma omp parallel for schedule(dynamic) private(t) reduction(+ \
+                                                                : count)
+    for (int i = 1; i <= 100; i++)
+    {   t=0;
+        std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
-#pragma omp parallel if (f)
-    {
-        printf("FALSE: I am thread %d\n", omp_get_thread_num());
+        std::cout << t << ' ';
+        count += i;
     }
-
-#pragma omp parallel if (t)
-    {
-        printf("TRUE : I am thread %d\n", omp_get_thread_num());
-    }
-
+    std::cout << '\n'
+              << count << '\n';
     return 0;
 }

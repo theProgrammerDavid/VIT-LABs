@@ -8,7 +8,7 @@ int t = 2;
 int main()
 {
 #pragma omp parallel copyin(t)
-#pragma omp for schedule(dynamic)
+#pragma omp for schedule(dynamic) 
     for (int i = 1; i <= 100; i++)
     {
 
