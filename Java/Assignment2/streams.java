@@ -1,11 +1,22 @@
 import java.io.*;
 import java.util.*;
 
+class Fruit implements Serializable {
+
+    String name;
+    String color;
+
+    public Fruit(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+}
+
 public class streams {
     private String data = "Sample data. xyz 123.";
 
     public void outputStreamFn() {
-        System.out.println("inside outputStreamFn");
+        System.out.println("\ninside outputStreamFn");
 
         try {
             OutputStream out = new FileOutputStream("output.txt");
@@ -25,7 +36,7 @@ public class streams {
         char[] array = new char[100];
 
         try {
-            System.out.println("inside inputStreamReaderFn");
+            System.out.println("\ninside inputStreamReaderFn");
 
             FileInputStream file = new FileInputStream("input.txt");
             InputStreamReader input = new InputStreamReader(file);
@@ -45,7 +56,7 @@ public class streams {
 
     public void inputStreamFn() {
         byte[] array = new byte[100];
-        System.out.println("inside inputStreamFn");
+        System.out.println("\ninside inputStreamFn");
 
         try {
             InputStream input = new FileInputStream("input.txt");
@@ -63,7 +74,7 @@ public class streams {
     }
 
     public void fileWriterFn() {
-        System.out.println("inside fileWriterFn");
+        System.out.println("\ninside fileWriterFn");
         try {
             Writer output = new FileWriter("output4.txt");
             output.write(data);
@@ -76,7 +87,7 @@ public class streams {
     }
 
     public void stringWriterFn() {
-        System.out.println("inside stringWriterFn");
+        System.out.println("\ninside stringWriterFn");
 
         try {
             StringWriter output = new StringWriter();
@@ -94,7 +105,7 @@ public class streams {
     }
 
     public void outputStreamWriterFn() {
-        System.out.println("inside outputStreamWriterFn");
+        System.out.println("\ninside outputStreamWriterFn");
 
         try {
             FileOutputStream file = new FileOutputStream("output2.txt");
@@ -112,7 +123,7 @@ public class streams {
 
     public void bufReaderFn() {
 
-        System.out.println("inside bufReaderFn");
+        System.out.println("\ninside bufReaderFn");
 
         char[] array = new char[100];
 
@@ -133,7 +144,7 @@ public class streams {
     }
 
     public void buffWriterFn() {
-        System.out.println("inside buffWriterFn");
+        System.out.println("\ninside buffWriterFn");
 
         try {
             FileWriter file = new FileWriter("output3.txt");
@@ -150,7 +161,7 @@ public class streams {
     }
 
     public void fileReader() {
-        System.out.println("inside fileReader");
+        System.out.println("\ninside fileReader");
 
         char[] array = new char[100];
 
@@ -171,7 +182,7 @@ public class streams {
     }
 
     public void stringReaderFn() {
-        System.out.println("inside stringReaderFn");
+        System.out.println("\ninside stringReaderFn");
 
         char[] array = new char[100];
 
@@ -188,6 +199,74 @@ public class streams {
         }
     }
 
+    public void ObjectOutputInputStream(){
+        System.out.println("\nIn ObjectOutputInputStream");
+        Fruit f1 = new Fruit("Mango", "Orange");
+
+        try {
+            FileOutputStream fileOut = new FileOutputStream("doggo.txt");
+            ObjectOutputStream objOut = new ObjectOutputStream(fileOut);
+
+            objOut.writeObject(f1);
+            objOut.close();
+
+            FileInputStream fileIn = new FileInputStream("doggo.txt");
+            ObjectInputStream objIn = new ObjectInputStream(fileIn);
+
+            Fruit fruit = (Fruit) objIn.readObject();
+
+            System.out.println("Fruit Name: " + fruit.name);
+            System.out.println("Fruit Color: " + fruit.color);
+
+            objIn.close();
+        }
+
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
+    public void BufferedInputStream(){
+        System.out.println("\nIn BufferedInputStream");
+
+        try {
+
+            FileInputStream file = new FileInputStream("input.txt");
+
+            BufferedInputStream input = new BufferedInputStream(file);
+
+            int i = input.read();
+
+            while (i != -1) {
+                System.out.print((char) i);
+                i = input.read();
+            }
+            input.close();
+        }
+
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
+
+
+    public void BufferedOutputStream(){
+        System.out.println("\nIn BufferedOutputStream");
+
+        try {
+            FileOutputStream file = new FileOutputStream("output5.txt");
+            BufferedOutputStream output = new BufferedOutputStream(file);
+
+            byte[] array = data.getBytes();
+            System.out.println(array);
+            output.write(array);
+            output.close();
+        }
+
+        catch (Exception e) {
+            e.getStackTrace();
+        }
+    }
     public static void main(String args[]) {
 
         streams s = new streams();
@@ -201,5 +280,8 @@ public class streams {
         s.bufReaderFn();
         s.inputStreamReaderFn();
         s.stringReaderFn();
+        s.ObjectOutputInputStream();
+        s.BufferedInputStream();
+        s.BufferedOutputStream();
     }
 }
