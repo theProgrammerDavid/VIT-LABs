@@ -2,31 +2,36 @@ import java.io.*;
 import java.util.*;
 
 class Account {
+    private String name;
+    private String accountNumber;
     public int balance;
 
-    Account(int b) {
+    Account(int b, String name, String no) {
         this.balance = b;
+        this.name = name;
+        this.accountNumber = no;
     }
 
-    synchronized public void withdraw(int b)throws InterruptedException {
+    synchronized public void withdraw(int b) throws InterruptedException {
         while (this.balance < b) {
-            System.out.println("thread is waiting");
+            System.out.println("Insufficient balance. thread " + Thread.currentThread().getId() + " is waiting");
             wait();
         }
-        System.out.println("Withdrawal is happening by "+Thread.currentThread().getId());
+        System.out.println("Withdrawal done by thread " + Thread.currentThread().getId());
 
         this.balance -= b;
     }
 
     synchronized public void deposit(int b) {
-        System.out.println("Deposit is happening by " + Thread.currentThread().getId());
+        System.out.println("Deposit done by " + Thread.currentThread().getId());
 
         this.balance += b;
         notify();
     }
 
     public void showBalanace() {
-        System.out.println(this.balance);
+        System.out.println(
+                "\n\nDetails are:\nname: " + this.name + "\naccount number: " + this.accountNumber + "\nbalance:" + this.balance);
     }
 
     synchronized public void withdrawAndDeposit(int w, int d) {
@@ -39,7 +44,7 @@ class Account {
 
 public class threadDemo1 {
     public static void main(String args[]) throws InterruptedException {
-        Account ac = new Account(20000);
+        Account ac = new Account(20000, "Arushi Jain", "AC1019214");
 
         Thread t1 = new Thread(new Runnable() {
             public void run() {
