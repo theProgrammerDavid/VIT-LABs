@@ -18,16 +18,17 @@ class Faculty implements Serializable {
     }
 }
 
+
 class FacultyHandler {
     private boolean fileBusy = false;
 
-    synchronized public void readFromFile() throws InterruptedException{
+    synchronized public void readFromFile() throws InterruptedException {
         ArrayList<String> names = new ArrayList<>();
         System.out.println("waiting");
         while (fileBusy)
             wait();
         try {
-          
+
             System.out.println("finished waiting");
             FileInputStream fis = new FileInputStream("faculties.dat");
 
