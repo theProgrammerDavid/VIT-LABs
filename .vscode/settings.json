@@ -74,5 +74,15 @@
         "typeinfo": "cpp",
         "valarray": "cpp",
         "variant": "cpp"
-    }
+    },
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "/usr/share/openjfx/lib/javafx.base.jar",
+        "/usr/share/openjfx/lib/javafx.controls.jar",
+        "/usr/share/openjfx/lib/javafx.fxml.jar",
+        "/usr/share/openjfx/lib/javafx.graphics.jar",
+        "/usr/share/openjfx/lib/javafx.media.jar",
+        "/usr/share/openjfx/lib/javafx.swing.jar",
+        "/usr/share/openjfx/lib/javafx.web.jar"
+    ]
 }
